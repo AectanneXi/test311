@@ -37,8 +37,21 @@ public class Solution {
 
     // Complete the activityNotifications function below.
     static int activityNotifications(int[] expenditure, int d) {
+		int notifyCounter = 0;
 
+		for (int i = d; i<expenditure.length; i++){
+			int sum = 0;
+			for (int j = i-d; j < i; j++){
+				sum += expenditure[j];
+			}
 
+			float median = sum/d;
+
+			if (expenditure[i] >= sum/d){
+				notifyCounter++;
+			}
+		}
+		return notifyCounter;
      }
 
     private static final Scanner scanner = new Scanner(System.in);
